@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
     res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-app.get("/a", async (req, res) => {
+app.get("/scrape", async (req, res) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
