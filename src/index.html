@@ -48,15 +48,14 @@
                 </div>
                 <div class="col s4 cell" style="background-color: #000;">
                     <div class="row nm">
-                        <div class="col s12 txtoverflow center-align">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
-                        <!-- <div class="col s4 right-align" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}})</div> -->
+                        <div class="col txtoverflow" :class="{'s6': cricData.isSecondInning, 's12 center-align': !cricData.isSecondInning}">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
+                        <div class="col s6 txtoverflow right-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
                     </div>
                     <div class="row nm">
                         <div class="col s4" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}})</div>
                         <div class="col s8 right-align">
                             CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| RRR: {{cricData.reqrr}}</span>
                         </div>
-                        <div class="col s12 txtoverflow center-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
                     </div>
                 </div>
                 <div class="col s4 cell" style="background-color: #ff5722;">
