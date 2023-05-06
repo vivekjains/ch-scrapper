@@ -90,8 +90,8 @@
                             .then(function(response) {
                                 response.json().then(function(data) {
                                     self.cricData = data
-                                    if (data.matchEnded && this.interval) {
-                                        clearInterval(this.interval);
+                                    if (data.matchEnded && self.interval) {
+                                        clearInterval(self.interval);
                                     }
                                 });
                             })
