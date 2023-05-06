@@ -79,19 +79,18 @@
                     interval: null,
                 },
                 created() {
-                    inverval = setInterval(this.getData, 10000);
+                    inverval = setInterval(this.getData, 30000);
                     this.getData();
                 },
                 methods: {
                     getData() {
                         const searchParams = new URLSearchParams(window.location.search);
                         var self = this;
+                        console.log(self.interval);
                         fetch("/scrape?u=" + searchParams.get("u"))
                             .then(function(response) {
                                 response.json().then(function(data) {
                                     self.cricData = data
-                                    console.log(data.matchEnded);
-                                    console.log(self.interval);
                                     if (data.matchEnded && self.interval) {
                                         console.log('clearing ');
                                         clearInterval(self.interval);
