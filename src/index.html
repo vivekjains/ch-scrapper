@@ -87,15 +87,11 @@
                         const searchParams = new URLSearchParams(window.location.search);
                         var self = this;
 
-                        console.log('1', self.interval);
-                        
                         fetch("/scrape?u=" + searchParams.get("u"))
                             .then(function(response) {
                                 response.json().then(function(data) {
                                     self.cricData = data
-                                    console.log('2', self.interval);
                                     if (data.matchEnded && self.interval) {
-                                        console.log('clearing ');
                                         clearInterval(self.interval);
                                     }
                                 });
