@@ -79,8 +79,8 @@
                     interval: null,
                 },
                 created() {
-                    this.getData();
                     inverval = setInterval(this.getData, 10000);
+                    this.getData();
                 },
                 methods: {
                     getData() {
