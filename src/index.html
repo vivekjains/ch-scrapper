@@ -51,8 +51,8 @@
                         <div class="col txtoverflow" :class="{'s5': cricData.isSecondInning, 's12 center-align': !cricData.isSecondInning}">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
                         <div class="col s7 txtoverflow right-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
                     </div>
-                    <div class="row nm">
-                        <div class="col s4" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}})</div>
+                    <div class="row nm" v-if="cricData.score">
+                        <div class="col s4" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}} overs)</div>
                         <div class="col s8 right-align">
                             CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| RRR: {{cricData.reqrr}}</span>
                         </div>
