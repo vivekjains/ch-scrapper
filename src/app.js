@@ -154,7 +154,7 @@ app.get("/scrape", async (req, res) => {
         result.isSecondInning = (await page.$eval(".summaryScoreData .req .team", (el) => el.innerHTML)).indexOf("require") > -1;
         const matchEndedStr = await page.$eval(".summaryScoreData .req .team", (el) => el.innerHTML);
 
-        result.matchEndedStr = result.isSecondInning ? matchEndedStr.replace(result.team2Name, "") : matchEndedStr;
+        result.matchEndedStr = result.isSecondInning ? matchEndedStr.replace(result.team2Name, "").replace("require", "").trim() : matchEndedStr;
         result.matchEnded = result.matchEndedStr.indexOf("won") >= 0;
     } catch (error) {
         console.log(error);
