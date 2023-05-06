@@ -38,14 +38,14 @@
                 </div>
             </div>
             <div class="row" v-else>
-                <div class="col s4" class="cell" style="background-color: #009688;">
+                <div class="col s4 cell" style="background-color: #009688;">
                     <div class="row" v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}">
                         <div class="col s8 txtoverflow">{{batter.name}}</div>
                         <div class="col s4 right-align" style="white-space: nowrap;">{{batter.score}}</div>
                     </div>
 
                 </div>
-                <div class="col s4" class="cell" style="background-color: #000;">
+                <div class="col s4 cell" style="background-color: #000;">
                     <div class="row">
                         <div class="col s6 txtoverflow">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
                         <div class="col s6 right-align" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}})</div>
@@ -54,7 +54,7 @@
                         <div class="col s12 center-align">CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| REQ RR: {{cricData.reqrr}}</span></div>
                     </div>
                 </div>
-                <div class="col s4" class="cell" style="background-color: #ff5722;">
+                <div class="col s4 cell" style="background-color: #ff5722;">
                     <div class="row" v-for="(bowler, index) in cricData.bowlers" :key="index">
                         <div class="col s6 txtoverflow">{{bowler.name}}</div>
                         <div class="col s6 right-align" style="white-space: nowrap;">{{bowler.score}}</div>
