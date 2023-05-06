@@ -11,9 +11,3 @@ This would start the node server on 3000 port.
     $ pm2 start pm2-config.json --env production
                        
 
-### TODO
-
-1. Multiple Warehouses
-    - COD etc, split prices
-    - Fix product upload - default warehouse
-    
