@@ -1,0 +1,23 @@
+{
+    "apps": [
+      {
+        "name": "ch-scrapper",
+        "script": "dist/app.js",
+        "watch": "watcher",
+        "watch_options": {
+          "usePolling": true
+        },
+        "exec_mode": "cluster_mode",
+        "instances": 1,
+        "max_memory_restart": "100M",
+        "merge_logs": true,
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "env_production": {
+          "NODE_ENV": "production",
+          "PORT": "3333"
+        }
+      }
+    ]
+  }
