@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(cors());
 
-app.get("/", async (req, res) => {
+app.get("/scrapper", async (req, res) => {
     res.sendFile(path.join(__dirname, "/index.html"));
 });
 
