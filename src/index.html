@@ -94,9 +94,11 @@
                         fetch("/scrape?u=" + searchParams.get("u"))
                             .then(function(response) {
                                 response.json().then(function(data) {
-                                    self.cricData = data
-                                    if (data.matchEnded && self.interval) {
-                                        clearInterval(self.interval);
+                                    if (data.team1Name) {
+                                        self.cricData = data
+                                        if (data.matchEnded && self.interval) {
+                                            clearInterval(self.interval);
+                                        }
                                     }
                                 });
                             })
