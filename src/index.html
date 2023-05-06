@@ -39,14 +39,14 @@
                 </div>
             </div>
             <div class="row nm" v-else>
-                <div class="col s4 cell" style="background-color: #009688;">
+                <div class="col s3 cell" style="background-color: #009688;">
                     <div class="row nm" v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}">
                         <div class="col s8 txtoverflow">{{batter.name}}</div>
                         <div class="col s4 right-align" style="white-space: nowrap;">{{batter.score}}</div>
                     </div>
 
                 </div>
-                <div class="col s4 cell" style="background-color: #000;">
+                <div class="col s5 cell" style="background-color: #000;">
                     <div class="row nm">
                         <div class="col txtoverflow" :class="{'s5': cricData.isSecondInning, 's12 center-align': !cricData.isSecondInning}">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
                         <div class="col s7 txtoverflow right-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
