@@ -56,7 +56,7 @@
                         <div class="col s8 right-align">
                             CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| RRR: {{cricData.reqrr}}</span>
                         </div>
-                        <div class="col s12 txtoverflow center-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr.replace(cricData.isSecondInning, '') }}</div>
+                        <div class="col s12 txtoverflow center-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
                     </div>
                 </div>
                 <div class="col s4 cell" style="background-color: #ff5722;">
