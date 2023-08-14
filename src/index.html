@@ -91,7 +91,7 @@
                         const searchParams = new URLSearchParams(window.location.search);
                         var self = this;
 
-                        fetch("/scrape?u=" + searchParams.get("u"))
+                        fetch("/scrape?u=" + encodeURIComponent(searchParams.get("u")))
                             .then(function(response) {
                                 response.json().then(function(data) {
                                     if (data.team1Name) {
