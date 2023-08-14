@@ -36,9 +36,11 @@
             CH URL:
             <br>
             <br>
-            <input type="text" placeholder="enter url" v-model="url"/>
+            <input type="text" placeholder="enter url" v-model="url" style="padding: 5px;width: 90%;"/>
             <br><br>
-            <button @click="getFinalUrl()" :disabled="!url">Get Final URL</button>
+            <button @click="getFinalUrl()" :disabled="!url" style="padding: 10px 20px;background-color: #0961ff;color: white;border: none;">
+                Get Final URL
+            </button>
             <br><br>
             <a :href="finalUrl">{{ finalUrl }}</a>
         </div>
