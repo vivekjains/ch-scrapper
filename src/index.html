@@ -28,7 +28,7 @@
             .ball div {position: relative;top:4px;}
             .ball span {font-weight: 300;}
 
-            .cell {color:#fff;padding: 6px 0 !important;border-radius: 6px;border: 3px solid #fff;min-height: 75px !important; }
+            .cell {color:#fff;padding: 6px 0 !important;border-radius: 2px;;min-height: 75px !important; }
             .cell .row .col:first-child {height: 28px;}
             .box {font-weight: 700;font-size: 12rem;margin-top: 30px;animation: zoom-in-zoom-out 1.5s ease 3 forwards;}
             
@@ -61,7 +61,7 @@
                     </div>
 
                 </div>
-                <div class="col s4 cell" style="background-color: #000;">
+                <div class="col s4 cell" style="background-color: #4072c3;">
                     <div class="row nm">
                         <div class="col txtoverflow" :class="{'s5': cricData.isSecondInning, 's12 center-align': !cricData.isSecondInning}">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
                         <div class="col s7 txtoverflow right-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
