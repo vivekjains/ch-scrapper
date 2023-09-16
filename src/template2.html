@@ -56,19 +56,19 @@
             <div v-else>
                 <div v-if="cricData.score" class="row nm">
                     <div class="col s4 cell" style="background-color: indianred;color: white;padding: 8px;height: 36px;">
-                        <span class="txtoverflow" style="width: 120px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
+                        <span class="txtoverflow" style="width: 100px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
                         <span class="right">{{cricData.score}} ({{cricData.overNum}} Ov)</span>
                     </div>
                     <div class="col s8 cell" style="background-color: wheat;color: black; padding-left: 0;padding-right: 0;">
                         <div style="background-color: #444;color: white;display: inline-block;padding: 9px;padding-right: 0; height: 18px;">
                             <span v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}" style="margin-right: 12px;display: inline-block;">
-                                <span class="txtoverflow" style="width: 120px;display: inline-block;">{{batter.name}}</span>
+                                <span class="txtoverflow" style="width: 100px;display: inline-block;">{{batter.name}}</span>
                                 <span class="right">{{batter.score}}</span>
                             </span>
                         </div>
                         <div class="right" v-for="(bowler, index) in cricData.bowlers" :key="index" style="display: inline-block;padding: 8px;">
                             <span style="display: inline-block;">
-                                <span class="txtoverflow" style="width: 120px;display: inline-block;">{{bowler.name}}</span>
+                                <span class="txtoverflow" style="width: 100px;display: inline-block;">{{bowler.name}}</span>
                                 <span class="right">{{bowler.score}}</span>
                             </span>
                         </div>
