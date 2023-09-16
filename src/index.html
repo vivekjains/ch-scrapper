@@ -56,8 +56,8 @@
             <div class="row nm" v-else>
                 <div class="col s4 cell" style="background-color: #009688;">
                     <div class="row nm" v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}">
-                        <div class="col s8 txtoverflow">{{batter.name}}</div>
-                        <div class="col s4 right-align" style="white-space: nowrap;">{{batter.score}}</div>
+                        <div class="col s7 txtoverflow">{{batter.name}}</div>
+                        <div class="col s5 right-align" style="white-space: nowrap;">{{batter.score}}</div>
                     </div>
 
                 </div>
@@ -75,8 +75,8 @@
                 </div>
                 <div class="col s4 cell" style="background-color: #ff5722;">
                     <div class="row nm" v-for="(bowler, index) in cricData.bowlers" :key="index">
-                        <div class="col s8 txtoverflow">{{bowler.name}}</div>
-                        <div class="col s4 right-align" style="white-space: nowrap;">{{bowler.score}}</div>
+                        <div class="col s7 txtoverflow">{{bowler.name}}</div>
+                        <div class="col s5 right-align" style="white-space: nowrap;">{{bowler.score}}</div>
                     </div>
                     <div class="row nm">
                         <div class="col s12 right-align">
