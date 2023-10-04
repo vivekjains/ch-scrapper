@@ -24,7 +24,7 @@
             .right-align{text-align: right}
             .right{float: right;}
             .light{font-weight: 300;}
-            .ball{background-color: #222;border-radius: 50%;font-size: 10px; font-weight: 500; width: 22px;display: inline-block;height: 22px;color: #fff;text-transform: none;text-align: center;margin-left: 5px;line-height: 18px;}
+            .ball{background-color: #222;border-radius: 50%;font-size: 10px; font-weight: 500; width: 22px;display: inline-block;height: 22px;color: #fff;text-transform: none;text-align: center;margin-left: 5px;line-height: 14px;}
             .ball div {position: relative;top:4px;}
             .ball span {font-weight: 300;}
 
@@ -59,7 +59,7 @@
                         <span class="txtoverflow" style="max-width: 180px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
                         <span class="right">{{cricData.score}} ({{cricData.overNum}} Ov)</span>
                     </div>
-                    <div class="col s8 cell" style="background-color: #f4f4f4;color: #000;padding-left: 0;padding-right: 0;">
+                    <div class="col s8 cell" style="background-color: #f4f4f4;color: #000;padding-left: 0;padding-right: 0;border-bottom: 0.5px solid #dedede;">
                         <div style="display: inline-block;padding: 8px 0px 8px 12px">
                             <span v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}" style="margin-right: 16px;display: inline-block;">
                                 <span class="txtoverflow" style="max-width: 120px;display: inline-block;margin-right: 12px">{{batter.name}}</span>
@@ -75,12 +75,12 @@
                     </div>
                 </div>
                 <div v-if="cricData.score" class="row nm" style="background-color: #f4f4f4;color: #000;">
-                    <div class="col s5" style="padding: 12px;">
+                    <div class="col s5" style="padding: 9px 12px;">
                         CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| RRR: {{cricData.reqrr}}</span>
                         <span class="right" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr.split(" (")[0] }}</span>
                         
                     </div>
-                    <div class="col s7 right-align" style="padding: 8px 10px;">
+                    <div class="col s7 right-align" style="padding: 2px 12px 8px 12px">
                         <span v-for="(ball, index) in cricData.recentBalls" :key="index" class="ball">
                             <div v-html="ball"></div>
                         </span>
