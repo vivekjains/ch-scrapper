@@ -53,9 +53,9 @@
                     <h3>{{cricData.matchEndedStr}}</h3>
                 </div>
             </div>
-            <div v-else style="border: 3px solid #f4f4f4;">
-                <div v-if="cricData.score" class="row nm" style="border-bottom: 1px solid #dedede;">
-                    <div class="col s4 cell" style="background-color: indianred;color: #fff;padding: 8px;height: 41.5px;">
+            <div v-else>
+                <div v-if="cricData.score" class="row nm" style="height: 41px;">
+                    <div class="col s4 cell" style="background-color: indianred;color: #fff;padding: 8px;height: 41px;">
                         <span class="txtoverflow" style="max-width: 120px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
                         <span class="right">{{cricData.score}} ({{cricData.overNum}} Ov)</span>
                     </div>
