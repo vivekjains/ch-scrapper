@@ -24,7 +24,7 @@
             .right-align{text-align: right}
             .right{float: right;}
             .light{font-weight: 300;}
-            .ball{background-color: #fff;border-radius: 50%;font-size: 12px; font-weight: 500; width: 26px;display: inline-block;height: 26px;color: #000;text-transform: none;text-align: center;margin-left: 5px;line-height: 18px;}
+            .ball{background-color: #222;border-radius: 50%;font-size: 12px; font-weight: 500; width: 26px;display: inline-block;height: 26px;color: #fff;text-transform: none;text-align: center;margin-left: 5px;line-height: 18px;}
             .ball div {position: relative;top:4px;}
             .ball span {font-weight: 300;}
 
@@ -55,7 +55,7 @@
             </div>
             <div v-else>
                 <div v-if="cricData.score" class="row nm" style="height: 41px;">
-                    <div class="col s4 cell" style="background-color: indianred;color: #fff;padding: 8px;height: 41px;">
+                    <div class="col s4 cell" style="background-color: #ff5228;color: #fff;padding: 8px;height: 41px;">
                         <span class="txtoverflow" style="max-width: 120px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
                         <span class="right">{{cricData.score}} ({{cricData.overNum}} Ov)</span>
                     </div>
