@@ -55,11 +55,11 @@
             </div>
             <div v-else>
                 <div v-if="cricData.score" class="row nm" style="height: 33px;">
-                    <div class="col s4 cell" style="background-color: #ff5228;color: #fff;padding: 6px 12px;height: 33px;font-size: 110%;">
-                        <span class="txtoverflow" style="max-width: 180px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
+                    <div class="col s5 cell" style="background-color: #ff5228;color: #fff;padding: 6px 12px;height: 33px;font-size: 110%;">
+                        <span class="txtoverflow" style="margin-right: 16px;max-width: 140px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
                         <span class="right">{{cricData.score}} ({{cricData.overNum}} Ov)</span>
                     </div>
-                    <div class="col s8 cell" style="background-color: #f4f4f4;color: #000;padding-left: 0;padding-right: 0;border-bottom: 0.5px solid #dedede;">
+                    <div class="col s7 cell" style="background-color: #f4f4f4;color: #000;padding-left: 0;padding-right: 0;border-bottom: 0.5px solid #dedede;">
                         <div style="display: inline-block;padding: 8px 0px 8px 12px">
                             <span v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}" style="margin-right: 16px;display: inline-block;">
                                 <span class="txtoverflow" style="max-width: 120px;display: inline-block;margin-right: 12px">{{batter.name}}</span>
