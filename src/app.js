@@ -30,11 +30,12 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/scrapper", async (req, res) => {
-    res.sendFile(path.join(__dirname, "/index.html"));
+    res.sendFile(path.join(__dirname, "/template2.html"));
 });
 
 app.get("/scrape", async (req, res) => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: "new" });
+    console.log("puppeteer launched...");
     const page = await browser.newPage();
 
     await page.setUserAgent(
@@ -42,6 +43,7 @@ app.get("/scrape", async (req, res) => {
     );
     console.log("url: " + req.query.u);
     await page.goto(req.query.u);
+    console.log("puppeteer page fetched...");
 
     // Taking a screenshot of the page and saving it
     // await page.screenshot({ path: "digimon-website.png", fullPage: true });
@@ -104,7 +106,7 @@ app.get("/scrape", async (req, res) => {
                 result.batters.push(data);
             } else {
                 data = {};
-                data.name = d;
+                data.name = d.split(" ")[0];
             }
             i += 1;
         });
@@ -122,7 +124,7 @@ app.get("/scrape", async (req, res) => {
                 result.bowlers.push(data);
             } else {
                 data = {};
-                data.name = d;
+                data.name = d.split(" ")[0];
             }
             i += 1;
         });
