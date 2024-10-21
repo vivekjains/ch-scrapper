@@ -144,6 +144,8 @@ app.get("/scrape", async (req, res) => {
         } else if (pageData.props.pageProps.summaryData.status) {
             result.team1Name = pageData.props.pageProps.summaryData.data.team_a.name;
             result.team2Name = pageData.props.pageProps.summaryData.data.team_b.name;
+            result.matchEnded = true;
+            result.matchEndedStr = pageData.props.pageProps.summaryData.data.match_summary.summary;
         }
     } catch (error) {
         result.error = true;
