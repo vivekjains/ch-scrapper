@@ -61,16 +61,19 @@ app.get("/scrape", async (req, res) => {
         currentBowler: "",
         isSecondInning: false,
         matchEnded: "",
+        error: false,
     };
 
     try {
         result.team1Name = await page.$eval(".team.clearfix.team1 b.text-uppercase", (el) => el.innerHTML);
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
         result.team2Name = await page.$eval(".team.clearfix.team2 b.text-uppercase", (el) => el.innerHTML);
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
@@ -78,21 +81,25 @@ app.get("/scrape", async (req, res) => {
         const overNumSplit = overNum.split(" ");
         result.overNum = overNumSplit[overNumSplit.length - 1];
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
         result.score = await page.$eval(".end-of-over .score", (el) => el.innerHTML);
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
         result.crr = await page.$eval(".rr.current-rr b", (el) => el.innerHTML);
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
         result.reqrr = await page.$eval(".rr.req-rr b", (el) => el.innerHTML);
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
 
@@ -111,6 +118,7 @@ app.get("/scrape", async (req, res) => {
             i += 1;
         });
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
 
@@ -129,11 +137,13 @@ app.get("/scrape", async (req, res) => {
             i += 1;
         });
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
     try {
         result.currentBowler = await page.$$eval("table#table-propeller2 tbody .bowler-name-col", (elements) => elements.map((e) => e.textContent).slice(0, 1));
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
 
@@ -153,6 +163,7 @@ app.get("/scrape", async (req, res) => {
             // .slice(balls.length - 6);
         });
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
 
@@ -163,6 +174,7 @@ app.get("/scrape", async (req, res) => {
         result.matchEndedStr = result.isSecondInning ? matchEndedStr.replace(result.team2Name, "").replace("require", "").trim() : matchEndedStr;
         result.matchEnded = result.matchEndedStr.indexOf("won") >= 0;
     } catch (error) {
+        result.error = true;
         console.log(error);
     }
 
