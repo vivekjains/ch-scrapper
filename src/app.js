@@ -158,7 +158,8 @@ app.get("/scrape", async (req, res) => {
             });
 
             if (miniScorecard.data.recent_over.includes("|")) {
-                result.recentBalls = miniScorecard.data.recent_over.split(" | ")[1].trim().split(" ");
+                const splitByover = miniScorecard.data.recent_over.split(" | ");
+                result.recentBalls = splitByover[splitByover.length - 1].trim().split(" ");
             } else {
                 result.recentBalls = miniScorecard.data.recent_over.split(" ");
             }
