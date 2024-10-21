@@ -46,7 +46,7 @@ app.get("/scrape", async (req, res) => {
     // await page.setUserAgent(
     //     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
     // );
-    // console.log("url: " + req.query.u);
+    console.log("url: " + req.query.u);
     // await page.goto(req.query.u);
     // await page.waitForNetworkIdle();
     // console.log("puppeteer page fetched...");
