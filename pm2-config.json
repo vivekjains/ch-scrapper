@@ -8,7 +8,7 @@
           "usePolling": true
         },
         "exec_mode": "cluster_mode",
-        "instances": 1,
+        "instances": 4,
         "max_memory_restart": "200M",
         "merge_logs": true,
         "env": {
