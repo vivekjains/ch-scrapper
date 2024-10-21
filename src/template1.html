@@ -117,7 +117,7 @@
                                         clearInterval(self.interval);
                                     }
                                 }
-                                if (data.error) {
+                                if (data.error || data.matchEnded) {
                                     console.log("got error.. clearing interval");
                                     clearInterval(self.interval);
                                 } else {
