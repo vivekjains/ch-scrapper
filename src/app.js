@@ -4,8 +4,12 @@ import cors from "cors";
 import express from "express";
 import path from "path";
 import puppeteer from "puppeteer";
+import puppeteerExtra from "puppeteer-extra";
+import stealth from "puppeteer-extra-plugin-stealth";
 import helmet from "helmet";
 import logger from "morgan";
+
+puppeteerExtra.use(stealth());
 
 const app = express();
 
@@ -34,14 +38,17 @@ app.get("/scrapper", async (req, res) => {
 });
 
 app.get("/scrape", async (req, res) => {
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteerExtra.launch({ headless: "new" });
     console.log("puppeteer launched...");
     const page = await browser.newPage();
-
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0')
-
+    
+    await page.setViewport({width: 1920, height: 1080});
+    await page.setUserAgent(
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
+    );
     console.log("url: " + req.query.u);
     await page.goto(req.query.u);
+    await page.waitForNetworkIdle();
     console.log("puppeteer page fetched...");
 
     // Taking a screenshot of the page and saving it
