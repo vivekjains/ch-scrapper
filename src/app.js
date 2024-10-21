@@ -38,9 +38,8 @@ app.get("/scrape", async (req, res) => {
     console.log("puppeteer launched...");
     const page = await browser.newPage();
 
-    await page.setUserAgent(
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-    );
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0')
+
     console.log("url: " + req.query.u);
     await page.goto(req.query.u);
     console.log("puppeteer page fetched...");
