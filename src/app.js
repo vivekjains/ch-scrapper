@@ -7,7 +7,7 @@ import logger from "morgan";
 import path from "path";
 // import puppeteerExtra from "puppeteer-extra";
 // import stealth from "puppeteer-extra-plugin-stealth";
-import { connect } from "puppeteer-real-browser"
+import { connect } from "puppeteer-real-browser";
 
 // puppeteerExtra.use(stealth());
 
@@ -62,7 +62,7 @@ app.get("/scrape", async (req, res) => {
         turnstile: true,
         connectOption: {},
         disableXvfb: false,
-        ignoreAllFlags: false
+        ignoreAllFlags: false,
     });
     await page.goto(req.query.u);
     console.log("puppeteer page fetched...2");
