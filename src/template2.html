@@ -158,6 +158,7 @@
                                     clearInterval(self.interval);
                                 } else {
                                     console.log("no error.. setting interval");
+                                    clearInterval(self.interval);
                                     self.interval = setInterval(self.getData, 60000);
                                 }
                             });
