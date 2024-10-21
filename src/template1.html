@@ -119,10 +119,10 @@
                                 }
                                 if (data.error) {
                                     console.log("got error.. clearing interval");
-                                    clearInterval(this.interval);
+                                    clearInterval(self.interval);
                                 } else {
                                     console.log("no error.. setting interval");
-                                    this.interval = setInterval(this.getData, 30000);
+                                    self.interval = setInterval(self.getData, 30000);
                                 }
                             });
                         });
