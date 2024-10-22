@@ -75,13 +75,13 @@
                     </div>
                 </div>
                 <div v-if="cricData.score" style="display: flex;border-bottom: 0.5px solid #dedede;">
-                    <div style="display: flex; flex: 40%;background-color: #ff5228;color: #fff; padding: 10px 12px;">
+                    <div style="display: flex; flex: 60%;background-color: #ff5228;color: #fff; padding: 10px 12px;">
                         <div style="display: flex;flex-grow: 1;">
-                            {{ cricData.isSecondInning ?  cricData.team2Name.substring(0, 26) :  cricData.team1Name.substring(0, 26) }}...
+                            {{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}
                         </div>
                         <div>{{ cricData.score }} ({{ cricData.overNum }} Ov)</div>
                     </div>
-                    <div style="display: flex; flex: 60%;background-color: #f4f4f4;color: #000;padding: 10px 12px;">
+                    <div style="display: flex; flex: 40%;background-color: #f4f4f4;color: #000;padding: 10px 12px;">
                         <div style="display: flex;flex-grow: 1;">
                             <div v-for="(batter, index) in cricData.batters" :key="index" style="display: flex; flex-grow: 1;">
                                 {{ batter.name.split(" ")[0] }}&nbsp;&nbsp;{{ batter.score }}
