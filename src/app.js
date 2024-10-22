@@ -158,10 +158,10 @@ app.get("/scrape", async (req, res) => {
             });
 
             if (miniScorecard.data.recent_over.includes("|")) {
-                const splitByover = miniScorecard.data.recent_over.split(" | ");
+                const splitByover = miniScorecard.data.recent_over.trim().split(" | ");
                 result.recentBalls = splitByover[splitByover.length - 1].trim().split(" ");
             } else {
-                result.recentBalls = miniScorecard.data.recent_over.split(" ");
+                result.recentBalls = miniScorecard.data.recent_over.trim().split(" ");
             }
         } else if (pageData.props.pageProps.summaryData.status) {
             result.team1Name = pageData.props.pageProps.summaryData.data.team_a.name;
