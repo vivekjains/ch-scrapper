@@ -54,34 +54,14 @@
                 </div>
             </div>
             <div v-else>
-                <div v-if="cricData.score" class="row nm" style="height: 33px;display: none;">
-                    <div class="col s5 cell" style="background-color: #ff5228;color: #fff;padding: 6px 12px;height: 33px;">
-                        <span class="txtoverflow" style="margin-right: 16px;max-width: 140px;display: inline-block;">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</span>
-                        <span class="right">{{ cricData.score }} ({{ cricData.overNum }} Ov)</span>
-                    </div>
-                    <div class="col s7 cell" style="background-color: #f4f4f4;color: #000;padding-left: 0;padding-right: 0;border-bottom: 0.5px solid #dedede;">
-                        <div style="display: inline-block;padding: 8px 0px 8px 12px">
-                            <span v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}" style="margin-right: 16px;display: inline-block;">
-                                <span class="txtoverflow" style="max-width: 120px;display: inline-block;margin-right: 12px">{{ batter.name }}</span>
-                                <span class="right">{{ batter.score }}</span>
-                            </span>
-                        </div>
-                        <div class="right" v-for="(bowler, index) in cricData.bowlers" :key="index" style="display: inline-block;padding: 8px;">
-                            <span style="display: inline-block;">
-                                <span class="txtoverflow" style="max-width: 120px;display: inline-block;margin-right: 12px">{{ bowler.name }}</span>
-                                <span class="right">{{ bowler.score }}</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
                 <div v-if="cricData.score" style="display: flex;border-bottom: 0.5px solid #dedede;">
-                    <div style="display: flex; flex: 60%;background-color: #ff5228;color: #fff; padding: 10px 12px;">
+                    <div style="display: flex; flex: 50%;background-color: #ff5228;color: #fff; padding: 10px 12px;">
                         <div style="display: flex;flex-grow: 1;">
                             {{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}
                         </div>
                         <div style="font-weight: 600;">{{ cricData.score }} ({{ cricData.overNum }} Ov)</div>
                     </div>
-                    <div style="display: flex; flex: 40%;background-color: #f4f4f4;color: #000;padding: 10px 12px;">
+                    <div style="display: flex; flex: 50%;background-color: #f4f4f4;color: #000;padding: 10px 12px;">
                         <div style="display: flex;flex-grow: 1;">
                             <div v-for="(batter, index) in cricData.batters" :key="index" style="display: flex; flex-grow: 1;">
                                 {{ batter.name.split(" ")[0] }}&nbsp;&nbsp;{{ batter.score }}
