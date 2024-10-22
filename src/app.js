@@ -41,7 +41,7 @@ app.get("/scrape", async (req, res) => {
     // const browser = await puppeteerExtra.launch({ headless: "new" });
     // console.log("puppeteer launched...");
     // const page = await browser.newPage();
-    
+
     // await page.setViewport({width: 1920, height: 1080});
     // await page.setUserAgent(
     //     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
@@ -54,7 +54,6 @@ app.get("/scrape", async (req, res) => {
     // Taking a screenshot of the page and saving it
     // await page.screenshot({ path: "digimon-website.png", fullPage: true });
 
-
     const { page, browser } = await connect({
         headless: false,
         args: [],
@@ -64,10 +63,8 @@ app.get("/scrape", async (req, res) => {
         disableXvfb: false,
         ignoreAllFlags: false,
     });
-    await page.goto(req.query.u);
+    await page.goto(req.query.u, { waitUntil: "domcontentloaded" });
     console.log("puppeteer page fetched...2");
-
-
 
     const result = {
         team1Name: "Team 1",
