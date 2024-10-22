@@ -79,7 +79,7 @@
                         <div style="display: flex;flex-grow: 1;">
                             {{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}
                         </div>
-                        <div>{{ cricData.score }} ({{ cricData.overNum }} Ov)</div>
+                        <div style="font-weight: 600;">{{ cricData.score }} ({{ cricData.overNum }} Ov)</div>
                     </div>
                     <div style="display: flex; flex: 40%;background-color: #f4f4f4;color: #000;padding: 10px 12px;">
                         <div style="display: flex;flex-grow: 1;">
@@ -91,9 +91,9 @@
                     </div>                    
                 </div>
                 <div v-if="cricData.score" class="row nm" style="background-color: #f4f4f4;color: #000;">
-                    <div class="col s5" style="padding: 9px 12px;">
+                    <div class="col s5" style="padding: 14px 12px;font-weight: 600;">
                         CRR: {{ cricData.crr }} <span v-if="cricData.isSecondInning">| RRR: {{ cricData.reqrr }}</span>
-                        <span class="right" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr.split(" (")[0] }}</span>
+                        <span class="right" v-if="cricData.isSecondInning" style="">{{ cricData.matchEndedStr.split(" (")[0] }}</span>
                     </div>
                     <div class="col s7 right-align" style="padding: 8px 12px 8px 12px">
                         <span v-for="(ball, index) in cricData.recentBalls" :key="index" class="ball">
@@ -102,43 +102,7 @@
                     </div>
                 </div>
             </div>
-            <!--
-            <div class="row nm" v-else>
-                <div class="col s4 cell" style="background-color: #009688;">
-                    <div class="row nm" v-for="(batter, index) in cricData.batters" :key="index" :class="{'nm': index}">
-                        <div class="col s7 txtoverflow">{{batter.name}}</div>
-                        <div class="col s5 right-align" style="white-space: nowrap;">{{batter.score}}</div>
-                    </div>
-
-                </div>
-                <div class="col s4 cell" style="background-color: #4072c3;">
-                    <div class="row nm">
-                        <div class="col txtoverflow" :class="{'s5': cricData.isSecondInning, 's12 center-align': !cricData.isSecondInning}">{{ cricData.isSecondInning ?  cricData.team2Name :  cricData.team1Name }}</div>
-                        <div class="col s7 txtoverflow right-align" v-if="cricData.isSecondInning">{{ cricData.matchEndedStr }}</div>
-                    </div>
-                    <div class="row nm" v-if="cricData.score">
-                        <div class="col s4" style="white-space: nowrap;">{{cricData.score}} ({{cricData.overNum}} overs)</div>
-                        <div class="col s8 right-align">
-                            CRR: {{cricData.crr}} <span v-if="cricData.isSecondInning">| RRR: {{cricData.reqrr}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s4 cell" style="background-color: #ff5722;">
-                    <div class="row nm" v-for="(bowler, index) in cricData.bowlers" :key="index">
-                        <div class="col s7 txtoverflow">{{bowler.name}}</div>
-                        <div class="col s5 right-align" style="white-space: nowrap;">{{bowler.score}}</div>
-                    </div>
-                    <div class="row nm">
-                        <div class="col s12 right-align">
-                            <span v-for="(ball, index) in cricData.recentBalls" :key="index" class="ball">
-                                <div v-html="ball"></div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
-
+            
             <div class="center-align" v-if="cricData && cricData.recentBalls && cricData.recentBalls.length">
                 <div class="box" style="color: #009688;" v-if="cricData.recentBalls[cricData.recentBalls.length-1].replace(/(<([^>]+)>)/ig, '') == '6'">6</div>
                 <div class="box" style="color: #009688;" v-if="cricData.recentBalls[cricData.recentBalls.length-1].replace(/(<([^>]+)>)/ig, '') == '4'">4</div>
