@@ -84,7 +84,7 @@ app.get("/scrape", async (req, res) => {
         error: false,
     };
 
-    await setTimeout(3000);
+    await setTimeout(5000);
 
     try {
         const pageData = await page.$$eval("script", (scripts) => JSON.parse(
