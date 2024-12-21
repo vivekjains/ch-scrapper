@@ -8,6 +8,7 @@ import path from "path";
 // import puppeteerExtra from "puppeteer-extra";
 // import stealth from "puppeteer-extra-plugin-stealth";
 import { connect } from "puppeteer-real-browser";
+import { setTimeout } from "timers/promises";
 
 // puppeteerExtra.use(stealth());
 
@@ -83,31 +84,7 @@ app.get("/scrape", async (req, res) => {
         error: false,
     };
 
-    // try {
-    //     result.team1Name = await page.$eval(".team.clearfix.team1 b.text-uppercase", (el) => el.innerHTML);
-    // } catch (error) {
-    //     result.error = true;
-    //     console.log(error);
-    // }
-    // try {
-    //     result.team2Name = await page.$eval(".team.clearfix.team2 b.text-uppercase", (el) => el.innerHTML);
-    // } catch (error) {
-    //     result.error = true;
-    //     console.log(error);
-    // }
-
-    // Teams names
-    // try {
-    //     const teamString = await page.$eval("h1.d-none", (el) => el.innerHTML);
-    //     const teams = teamString.replace("Cricket Match Scorecard", "").trim().split(" vs ");
-    //     if (teams.length === 2) {
-    //         result.team1Name = teams[0];
-    //         result.team2Name = teams[1];
-    //     }
-    // } catch (error) {
-    //     result.error = true;
-    //     console.log(error);
-    // }
+    await setTimeout(3000);
 
     try {
         const pageData = await page.$$eval("script", (scripts) => JSON.parse(
